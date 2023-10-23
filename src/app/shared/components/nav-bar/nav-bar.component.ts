@@ -14,48 +14,48 @@ export class NavBarComponent implements OnInit {
   addOnBlur = true;
 
   constructor(@Inject(APP_CONFIG) appConfig: any) {
-	  this.appConfig = appConfig;
+    this.appConfig = appConfig;
   }
 
   ngOnInit() {
-	  this.loadMenus();
+    this.loadMenus();
   }
 
   private loadMenus(): void {
-	  this.menuItems = [
+    this.menuItems = [
       {
-	      link: '/',
-	      name: 'Home',
-	      icon: 'fas fa-home'
-	    },
+        link: '/',
+        name: 'Home',
+        icon: 'fas fa-home'
+      },
       {
-	      link: '/' + AppConfig.routes.depth_chart,
-	      name: 'Depth Chart',
-	      icon: 'fas fa-check'
-	    },
+        link: '/' + AppConfig.routes.depth_chart,
+        name: 'Depth Chart',
+        icon: 'fas fa-check'
+      },
       {
-	      link: '/' + AppConfig.routes.error404,
-	      name: 'Not found page',
-	      icon: 'fas fa-exclamation'
-	    },
-	  ];
+        link: '/' + AppConfig.routes.error404,
+        name: 'Not found page',
+        icon: 'fas fa-exclamation'
+      },
+    ];
 
-	  this.menuItemsDefault = [
-	    {
-	      link: '/',
-	      name: 'FAQ',
-	      icon: 'far fa-question-circle'
-	    },
+    this.menuItemsDefault = [
       {
-	      link: '/',
-	      name: 'T&C',
-	      icon: 'far fa-list-alt'
-	    },
+        link: '/',
+        name: 'FAQ',
+        icon: 'far fa-question-circle'
+      },
       {
-	      link: '/',
-	      name: 'Privacy policy',
-	      icon: 'fas fa-user-secret'
-	    }
-	  ];
+        link: '/',
+        name: 'T&C',
+        icon: 'far fa-list-alt'
+      },
+      {
+        link: '/',
+        name: 'Privacy policy',
+        icon: 'fas fa-user-secret'
+      }
+    ];
   }
 }
