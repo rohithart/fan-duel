@@ -4,22 +4,23 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from './material.module';
 import { NavBarComponent } from 'src/app/shared/components/nav-bar/nav-bar.component';
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 import { HeadingComponent } from 'src/app/shared/components/heading/heading.component';
-import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
 import { EmptyComponent } from 'src/app/shared/components/empty/empty.component';
-import { TextModalComponent } from 'src/app/shared/components/text-modal/text-modal.component';
+import { CardComponent } from 'src/app/shared/components/card/card.component';
+import { SubHeadingComponent } from 'src/app/shared/components/sub-heading/sub-heading.component';
+
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
     NavBarComponent,
     FooterComponent,
     HeadingComponent,
-    LoadingComponent,
+    SubHeadingComponent,
     EmptyComponent,
-    TextModalComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
@@ -39,9 +40,9 @@ import { TextModalComponent } from 'src/app/shared/components/text-modal/text-mo
     NavBarComponent,
     FooterComponent,
     HeadingComponent,
-    LoadingComponent,
+    SubHeadingComponent,
     EmptyComponent,
-    TextModalComponent,
+    CardComponent,
   ]
 })
 export class SharedModule {}
