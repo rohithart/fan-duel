@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { ActivatedRoute } from '@angular/router';
 
+import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { NotFoundComponent } from './not-found.component';
 
 describe('NotFoundComponent', () => {
