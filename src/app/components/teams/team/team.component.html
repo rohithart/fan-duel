@@ -1,0 +1,21 @@
+<app-heading [heading]="'Team: ' + team?.name"></app-heading>
+
+<div class="page-container">
+  <app-empty *ngIf="!team" icon="fas fa-wine-glass-empty" message1="Team not found" message2="Please check"></app-empty>
+
+  <div class="row" *ngIf="team">
+    <div class="col-md-3 panel">
+      <app-sub-heading heading="Players"></app-sub-heading>
+      <app-empty *ngIf="players.length === 0" icon="fas fa-wine-glass-empty" message1="No players added" message2="Add players first"></app-empty>
+      <button mat-raised-button aria-label="Add player" color="primary" (click)="addPlayer()" class="add-button"><i class="fas fa-eye"></i> Add player</button>
+
+      <div *ngFor="let player of players">
+        
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <app-sub-heading heading="Depth chart"></app-sub-heading>
+    </div>
+  </div>
+</div>
