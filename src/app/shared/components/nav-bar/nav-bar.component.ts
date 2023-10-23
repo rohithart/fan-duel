@@ -29,9 +29,14 @@ export class NavBarComponent implements OnInit {
         icon: 'fas fa-home'
       },
       {
-        link: '/' + AppConfig.routes.depth_chart,
-        name: 'Depth Chart',
-        icon: 'fas fa-check'
+        link: '/' + AppConfig.routes.sports,
+        name: 'Sports',
+        icon: 'fas fa-football'
+      },
+      {
+        link: '/' + AppConfig.routes.teams,
+        name: 'Teams',
+        icon: 'fas fa-people-group'
       },
       {
         link: '/' + AppConfig.routes.error404,
