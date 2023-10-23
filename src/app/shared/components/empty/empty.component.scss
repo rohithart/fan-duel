@@ -1,0 +1,85 @@
+@import "src/app/styles/mixins";
+
+.empty-banner {
+  display: flex;
+  flex-direction: column;
+}
+
+.message  {
+  color: $primary--color;
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.message1 {
+  @extend .message;
+  font-size: 1rem;
+}
+
+.message2 {
+  @extend .message;
+  font-size: .75rem;
+}
+
+.fade-container {
+  height: 6rem;
+  width: 100%;
+  position: relative;
+}
+
+.icon-banner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: $primary--color;
+  font-size: 5rem;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity:1;
+  }
+  45% {
+    opacity:1;
+  }
+  55% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@keyframes fadeOutIn {
+  0% {
+    opacity:0;
+  }
+  45% {
+    opacity:0;
+  }
+  55% {
+    opacity:1;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.animate {
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-direction: alternate;
+}
+
+.first {
+  @extend .animate;
+  animation-name: fadeInOut;
+}
+
+.next {
+  @extend .animate;
+  animation-name: fadeOutIn;
+}
