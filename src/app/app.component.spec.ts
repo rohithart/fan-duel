@@ -1,16 +1,24 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { SharedModule } from 'src/app/shared/modules/shared.module';
+import { APP_CONFIG, AppConfig } from 'src/app/configs/app.config';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        SharedModule,
       ],
       declarations: [
         AppComponent
       ],
+      providers: [
+        { provide: APP_CONFIG, useValue: AppConfig },
+      ]
     }).compileComponents();
   });
 
@@ -24,12 +32,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('fanduel-ui');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('fanduel-ui app is running!');
   });
 });

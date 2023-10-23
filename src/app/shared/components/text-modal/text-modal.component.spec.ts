@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SharedModule } from 'src/app/shared/modules/shared.module';
 
 import { TextModalComponent } from './text-modal.component';
 
@@ -8,7 +12,12 @@ describe('TextModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextModalComponent ]
+      imports: [ BrowserAnimationsModule, SharedModule ],
+      declarations: [ TextModalComponent ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: { value: ''} },
+      ]
     })
       .compileComponents();
   });
