@@ -10,6 +10,6 @@ export function getPositionsOf(team: Team): string[] {
     case nfl.id:
       return Object.values(NFL_POSITION).sort()
     default:
-      return [];
+      return ['Default'];
   }
 }

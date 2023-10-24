@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { generateUniqueId } from 'src/app/helpers/idHelper';
 import { Player } from 'src/app/models/Player';
 import { Team } from 'src/app/models/Team';
 
@@ -27,7 +28,7 @@ export class AddPlayerModalComponent implements OnInit {
 
   onYesClick(): void {
     if(this.isValid()) {
-      const player = new Player('', parseInt(this.formFields.get('num')?.value), this.formFields.get('name')?.value, this.data.team)
+      const player = new Player(generateUniqueId(), parseInt(this.formFields.get('num')?.value), this.formFields.get('name')?.value, this.data.team)
       this.dialogRef.close(player);
     }
   }
