@@ -21,23 +21,13 @@
   flex: 1 1 auto;
 }
 
-.header-message {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  a {color:$primary--color;
-  text-decoration: none;
-  }
-  a:visited {color:$primary--color;}
-  a:hover {color:$primary--color;}
-  a:active {color:$primary--color;}
-}
-
 .pic {
   height: 50px;
-  width: 50px;
-  margin-right: 1rem;
+  width: 10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 6px;
+  background: $primary--color;
 }
 
 .app-name {
@@ -54,4 +44,3 @@
     height: 7rem;
   }
 }
-
