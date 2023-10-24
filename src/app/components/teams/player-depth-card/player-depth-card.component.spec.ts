@@ -4,24 +4,24 @@ import { ActivatedRoute } from '@angular/router';
 import { MaterialModule } from 'src/app/shared/modules/material.module';
 import { Player } from 'src/app/models/Player';
 import { Team } from 'src/app/models/Team';
-import { PlayerCardSmallComponent } from './player-card-small.component';
+import { PlayerDepthCardComponent } from './player-depth-card.component';
 
 
-describe('PlayerCardSmallComponent', () => {
-  let component: PlayerCardSmallComponent;
-  let fixture: ComponentFixture<PlayerCardSmallComponent>;
+describe('PlayerDepthCardComponent', () => {
+  let component: PlayerDepthCardComponent;
+  let fixture: ComponentFixture<PlayerDepthCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ MaterialModule ],
-      declarations: [ PlayerCardSmallComponent ],
+      declarations: [ PlayerDepthCardComponent ],
       providers: [
         { provide: ActivatedRoute, useValue: { id: '123' } },
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PlayerCardSmallComponent);
+    fixture = TestBed.createComponent(PlayerDepthCardComponent);
     component = fixture.componentInstance;
     component.player = new Player('', 10, 'Name', {} as Team);
     fixture.detectChanges();

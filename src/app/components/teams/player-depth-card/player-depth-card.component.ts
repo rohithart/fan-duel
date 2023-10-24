@@ -6,11 +6,11 @@ import { PlayerDetailsModalComponent } from 'src/app/components/teams/player-det
 import { TeamDepth } from 'src/app/models/TeamDepth';
 
 @Component({
-  selector: 'app-player-card-small',
-  templateUrl: './player-card-small.component.html',
-  styleUrls: ['./player-card-small.component.scss']
+  selector: 'app-player-depth-card',
+  templateUrl: './player-depth-card.component.html',
+  styleUrls: ['./player-depth-card.component.scss']
 })
-export class PlayerCardSmallComponent {
+export class PlayerDepthCardComponent {
   @Input() player!: Player;
   @Input() depth!: number;
   @Input() position!: string;

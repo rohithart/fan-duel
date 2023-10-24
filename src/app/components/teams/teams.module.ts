@@ -8,7 +8,7 @@ import { PlayerCardComponent } from './player-card/player-card.component';
 import { AddPlayerModalComponent } from './add-player/add-player-modal.component';
 import { AddDepthModalComponent } from './add-depth/add-depth-modal.component';
 import { DepthTableComponent } from './depth-table/depth-table.component';
-import { PlayerCardSmallComponent } from './player-card-small/player-card-small.component';
+import { PlayerDepthCardComponent } from './player-depth-card/player-depth-card.component';
 import { PlayerDetailsModalComponent } from './player-details/player-details-modal.component';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { PlayerDetailsModalComponent } from './player-details/player-details-mod
     AddPlayerModalComponent,
     AddDepthModalComponent,
     DepthTableComponent,
-    PlayerCardSmallComponent,
+    PlayerDepthCardComponent,
     PlayerDetailsModalComponent,
   ],
   imports: [SharedModule],
