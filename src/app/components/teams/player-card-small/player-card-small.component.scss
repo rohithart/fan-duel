@@ -1,0 +1,26 @@
+@import "src/app/styles/mixins";
+
+.player-description {
+  color: $primary--color;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.tile-card {
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.player-number {
+  border-radius: 60%;
+  background-color: $primary--color;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

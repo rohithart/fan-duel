@@ -6,6 +6,8 @@ import { Team } from 'src/app/models/Team';
 import { PlayerService } from 'src/app/services/player.service';
 import { TeamService } from 'src/app/services/team.service';
 import { AddPlayerModalComponent } from '../add-player/add-player-modal.component';
+import { AddDepthModalComponent } from '../add-depth/add-depth-modal.component';
+import { TeamDepth } from 'src/app/models/TeamDepth';
 
 @Component({
   selector: 'app-team',
@@ -15,6 +17,7 @@ import { AddPlayerModalComponent } from '../add-player/add-player-modal.componen
 export class TeamComponent implements OnInit {
   teamId = '';
   team!: Team;
+  depth!: TeamDepth;
   players: Player[] = [];
 
   constructor(
@@ -30,6 +33,21 @@ export class TeamComponent implements OnInit {
 
   refresh() {
     this.getData();
+  }
+
+  playerSelected(player: Player) {
+    const dialogRef = this.dialog.open(AddDepthModalComponent, {
+      width: '40rem',
+      data: {
+        player: player,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.depth.addPlayerToDepthChart(result.position, player, result.depth)
+      }
+    });
   }
 
   addPlayer() {
@@ -52,13 +70,25 @@ export class TeamComponent implements OnInit {
       if(team != null) {
         this.team = team;
         this.getPlayers(team);
+        this.initDepth();
       }
     })
+  }
+
+  private initDepth() {
+    this.depth = new TeamDepth('1', this.team);
   }
 
   private getPlayers(team: Team) {
     this.playerService.getAllPlayers(team.id).then((data) => {
       this.players = data;
+      this.test();
     })
+  }
+
+  private test() {
+    this.players.forEach((player, i) => {
+      this.depth.addPlayerToDepthChart('QB', player, i+1)
+    } )
   }
 }

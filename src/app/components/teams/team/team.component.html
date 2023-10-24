@@ -10,12 +10,13 @@
       <button mat-raised-button aria-label="Add player" color="primary" (click)="addPlayer()" class="add-button"><i class="fas fa-eye"></i> Add player</button>
 
       <div *ngFor="let player of players">
-        <app-player-card [player]="player"></app-player-card>
+        <app-player-card [player]="player" (playerEmitter)="playerSelected($event)"></app-player-card>
       </div>
     </div>
 
     <div class="col-md-9">
       <app-sub-heading heading="Depth chart"></app-sub-heading>
+      <app-depth-table [depth]="depth"></app-depth-table>
     </div>
   </div>
 </div>
