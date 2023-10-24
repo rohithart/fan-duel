@@ -24,3 +24,7 @@ h2 {
   display: flex;
   justify-content: space-between;
 }
+
+.panel {
+  border-right: 1px solid $primary--color;
+}
