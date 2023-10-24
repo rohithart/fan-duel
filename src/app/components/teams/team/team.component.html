@@ -1,4 +1,4 @@
-<app-heading [heading]="'Team: ' + team?.name"></app-heading>
+<app-heading [heading]="'Team: ' + team?.name"  [check]="team"></app-heading>
 
 <div class="page-container">
   <app-empty *ngIf="!team" icon="fas fa-users" message1="Team not found" message2="Please check"></app-empty>

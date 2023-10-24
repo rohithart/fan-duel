@@ -18,7 +18,7 @@ import { TeamDepth } from 'src/app/models/TeamDepth';
 })
 export class TeamComponent implements OnInit {
   teamId = '';
-  team!: Team;
+  team?: Team;
   depth!: TeamDepth;
   players: Player[] = [];
 
@@ -68,7 +68,7 @@ export class TeamComponent implements OnInit {
         if(playerIndex === -1) {
           this.playerService.addPlayer(result).then(() => {
             this.toast.success('Success', 'New player has been added');
-            this.getPlayers(this.team);
+            this.getPlayers();
           });
         } else {
           this.toast.error('Error', `Player with number ${result.num} already exists`);
@@ -81,19 +81,22 @@ export class TeamComponent implements OnInit {
     this.teamsService.getTeam(this.teamId).then((team) => {
       if(team != null) {
         this.team = team;
-        this.getPlayers(team);
+        this.getPlayers();
         this.initDepth();
       }
     })
   }
 
   private initDepth() {
-    this.depth = new TeamDepth('1', this.team);
+    if(this.team)
+      this.depth = new TeamDepth('1', this.team);
   }
 
-  private getPlayers(team: Team) {
-    this.playerService.getAllPlayers(team.id).then((data) => {
-      this.players = data;
-    })
+  private getPlayers() {
+    if(this.team) {
+      this.playerService.getAllPlayers(this.team.id).then((data) => {
+        this.players = data;
+      })
+    }
   }
 }

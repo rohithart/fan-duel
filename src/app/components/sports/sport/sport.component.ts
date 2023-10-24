@@ -12,7 +12,7 @@ import { TeamService } from 'src/app/services/team.service';
 })
 export class SportComponent implements OnInit {
   sportId = '';
-  sport!: Sport;
+  sport?: Sport;
   teams: Team[] = [];
 
   constructor(
