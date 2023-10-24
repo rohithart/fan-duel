@@ -22,7 +22,7 @@ export class TeamsComponent implements OnInit {
 
   private getData() {
     this.teamsService.getAllTeams().then((data) => {
-      this.teams = data;
+      this.teams = data.sort((a,b) => a.name.localeCompare(b.name));
     })
   }
 }

@@ -95,7 +95,7 @@ export class TeamComponent implements OnInit {
   private getPlayers() {
     if(this.team) {
       this.playerService.getAllPlayers(this.team.id).then((data) => {
-        this.players = data;
+        this.players = data.sort((a,b) => a.name.localeCompare(b.name));
       })
     }
   }

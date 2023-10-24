@@ -22,7 +22,7 @@ export class SportsComponent implements OnInit{
 
   private getData() {
     this.sportsService.getAllSports().then((data) => {
-      this.sports = data;
+      this.sports = data.sort((a,b) => a.name.localeCompare(b.name));
     })
   }
 }
