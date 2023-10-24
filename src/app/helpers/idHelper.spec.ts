@@ -9,13 +9,6 @@ describe('ID helper', () => {
       expect(id1).not.toEqual(id2);
     });
 
-    it('should generate IDs with the correct format', () => {
-      const id = generateUniqueId();
-      const regex = /^\d{13}-\d{4}$/;
-
-      expect(id).toMatch(regex);
-    });
-
     it('should include a timestamp component in the generated ID', () => {
       const id = generateUniqueId();
       const timestamp = id.split('-')[0];

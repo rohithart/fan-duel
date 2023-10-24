@@ -94,6 +94,13 @@ export class TeamComponent implements OnInit {
   private getPlayers(team: Team) {
     this.playerService.getAllPlayers(team.id).then((data) => {
       this.players = data;
+      this.test();
     })
+  }
+
+  private test() {
+    this.players.forEach((player, i) => {
+      this.depth.addPlayerToDepthChart('QB', player, i+1)
+    } )
   }
 }

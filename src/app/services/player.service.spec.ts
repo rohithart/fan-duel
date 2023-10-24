@@ -19,7 +19,7 @@ describe('PlayerService', () => {
     databaseService = TestBed.inject(DatabaseService) as jasmine.SpyObj<DatabaseService>;
   });
 
-  it('should be created', () => {
+  it('should create the service', () => {
     expect(service).toBeTruthy();
   });
 
