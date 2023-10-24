@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { TeamComponent } from './team.component';
@@ -11,7 +12,7 @@ describe('TeamComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ SharedModule ],
+      imports: [ SharedModule, ToastrModule.forRoot(), ],
       declarations: [ TeamComponent ],
       providers: [
         { provide: MatDialogRef, useValue: {} },

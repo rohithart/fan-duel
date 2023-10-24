@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { APP_CONFIG, AppConfig } from './configs/app.config';
@@ -31,6 +32,7 @@ import { NotFoundModule } from './components/not-found/not-found.module';
     HomeModule,
     SportsModule,
     TeamsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     { provide: APP_CONFIG, useValue: AppConfig },

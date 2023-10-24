@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 import { Player } from 'src/app/models/Player';
 import { Team } from 'src/app/models/Team';
 import { PlayerService } from 'src/app/services/player.service';
@@ -21,6 +23,7 @@ export class TeamComponent implements OnInit {
   players: Player[] = [];
 
   constructor(
+    private toast: ToastrService,
     private dialog: MatDialog,
     private route: ActivatedRoute,
     private teamsService: TeamService,
@@ -45,7 +48,8 @@ export class TeamComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        this.depth.addPlayerToDepthChart(result.position, player, result.depth)
+        this.depth.addPlayerToDepthChart(result.position, player, result.depth);
+        this.toast.success('Success', `${player.name} added to depth chart`);
       }
     });
   }
@@ -60,7 +64,15 @@ export class TeamComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: Player) => {
       if (result) {
-        this.playerService.addPlayer(result).then(() => this.getPlayers(this.team));
+        const playerIndex = this.players.findIndex((p) => p.num === result.num);
+        if(playerIndex === -1) {
+          this.playerService.addPlayer(result).then(() => {
+            this.toast.success('Success', 'New player has been added');
+            this.getPlayers(this.team);
+          });
+        } else {
+          this.toast.error('Error', `Player with number ${result.num} already exists`);
+        }
       }
     });
   }
