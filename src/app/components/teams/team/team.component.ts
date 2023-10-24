@@ -49,7 +49,7 @@ export class TeamComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
         this.depth.addPlayerToDepthChart(result.position, player, result.depth);
-        this.toast.success('Success', `${player.name} added to depth chart`);
+        this.toast.success(`${player.name} added to depth chart`, 'Success');
       }
     });
   }
@@ -67,11 +67,11 @@ export class TeamComponent implements OnInit {
         const playerIndex = this.players.findIndex((p) => p.num === result.num);
         if(playerIndex === -1) {
           this.playerService.addPlayer(result).then(() => {
-            this.toast.success('Success', 'New player has been added');
+            this.toast.success('New player has been added', 'Success');
             this.getPlayers();
           });
         } else {
-          this.toast.error('Error', `Player with number ${result.num} already exists`);
+          this.toast.error(`Player with number ${result.num} already exists`, 'Error');
         }
       }
     });
