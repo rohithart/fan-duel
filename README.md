@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
 ## Assumptions
+- Id/Primary key has been assigned simple or ignored as it has to be taken care when data persistance comes into picture.
 - The position depth starts from 1 (Though it has been mentioned as 0 in the problem statement, to make is sensible for users, I have assumed it to be better to be 1)
 - If a player already exists in the depth map, that player will be updated to have the new depth.
 - If the depth is higher than the list of depths, the player takes the last position. (If there are 3 depths in a position, if we decide to add a new player at depth 100, they will be placed at 4)
@@ -14,6 +15,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Components, that are supporting the UI
 - More focus is given to Team Depth chart
 - The rest of the components are created as supporting structure and lack functionalities as they are out of scope as well.
+
+## Code challenge
+For easiness of marking this solution the core business logic can be found at `src/app/models/TeamDepth.ts`
+
+Its unit tests can be found `src/app/models/TeamDepth.spec.ts`
+
+The Sample Input Output provided as a part of this problem statement has been added one big test case that can be found here `src/app/sample-io-test.spec.ts`
 
 ## Development server
 

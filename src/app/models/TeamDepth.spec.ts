@@ -2,7 +2,7 @@ import { Player } from './Player';
 import { Team } from './Team';
 import { TeamDepth } from './TeamDepth';
 
-fdescribe('TeamDepth', () => {
+describe('TeamDepth', () => {
   let teamDepth: TeamDepth;
   let player1: Player;
   let player2: Player;
